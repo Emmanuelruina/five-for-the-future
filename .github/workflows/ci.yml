@@ -43,16 +43,9 @@ jobs:
         composer install --prefer-dist --no-suggest --no-progress --no-ansi --no-interaction
         echo "${PWD}/mu-plugins/vendor/bin" >> $GITHUB_PATH
 
-    - name: Install PHP_CodeSniffer
+    - name: Lint PHP
       run: |
-        curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
-        php phpcs.phar --version
-
-      - uses: thenabeel/action-phpcs@v8
-        with:
-          files: "**.php"
-          phpcs_path: php phpcs.phar
-          standard: phpcs.xml
+        BASE_REF=${{ github.base_ref }} php .github/bin/phpcs-branch.php
 
   phpunit:
     name: PHP Unit Tests
