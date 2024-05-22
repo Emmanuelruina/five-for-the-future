@@ -74,7 +74,7 @@ function render_company_report_page() {
 	if ( 250 == count( $pledges ) ) {
 		echo '<p>WARNING: pledge limit reached, check the code query.</p>';
 	}
-?>
+    ?>
 
 	<p>
 		<b>Total:</b><?php echo count( $pledges ); ?>
@@ -106,7 +106,7 @@ function render_company_report_page() {
 			<th>Pledge created</th>
 			<th>Pledge updated</th>
 		</tr>
-<?php
+    <?php
 	$all_contributors = 0;
 
 	$export_data = array();
