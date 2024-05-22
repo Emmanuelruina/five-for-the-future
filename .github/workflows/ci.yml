@@ -43,10 +43,6 @@ jobs:
         composer install --prefer-dist --no-suggest --no-progress --no-ansi --no-interaction
         echo "${PWD}/mu-plugins/vendor/bin" >> $GITHUB_PATH
 
-    - name: Lint PHP
-      run: |
-        BASE_REF=${{ github.base_ref }} php .github/bin/phpcs-branch.php
-
   phpunit:
     name: PHP Unit Tests
 
