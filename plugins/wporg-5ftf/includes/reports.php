@@ -65,7 +65,7 @@ function render_company_report_page() {
 	$pledges = get_posts( array(
 		'post_type' => '5ftf_pledge',
 		'post_status' => $status,
-		'posts_per_page' => 250, // set to 250 to avoid unexpected memory overuse.
+		'posts_per_page' => 500, // set to 500 to avoid unexpected memory overuse.
 		'orderby' => 'post_title',
 		'order' => 'ASC',
 	) );
