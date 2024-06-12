@@ -296,11 +296,11 @@ function get_badge_classes( $team ) {
 		case 'support team':
 			$classes = array( 'badge-support', 'dashicons-format-chat' );
 			break;
-		
+
 		case 'sustainability team':
 			$classes = array( 'badge-meta', 'dashicons-admin-site-alt3' );
 			break;
-		
+
 		case 'test team':
 			$classes = array( 'badge-test-team', 'dashicons-desktop' );
 			break;
