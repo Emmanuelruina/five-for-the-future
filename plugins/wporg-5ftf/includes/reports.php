@@ -186,7 +186,7 @@ function render_contributor_report_page() {
 	}
 
 	$all_contributor_data = XProfile\get_all_xprofile_contributors_indexed();
-?>
+	?>
 	<p>
 		<b>Total:</b><?php echo count( $contributors ); ?>
 		<b>Status:</b>
@@ -214,13 +214,16 @@ function render_contributor_report_page() {
 			<th>Last login</th>
 			<th>Status</th>
 		</tr>
-<?php
+	<?php
 	$export_data = array();
 	foreach ( $contributors as $c ) {
 		$pledge_company       = get_post( $c->post_parent );
 		$pledge_company_title = get_the_title( $pledge_company ) ?? 'unattached';
 		$user_id              = get_post_meta( $c->ID, 'wporg_user_id', true );
-		$xprofile             = $all_contributor_data[ $user_id ] ?? [ 'team_names' => [], 'hours_per_week' => 0 ];
+		$xprofile             = $all_contributor_data[ $user_id ] ?? [
+			'team_names' => [],
+			'hours_per_week' => 0
+		];
 		$xprofile_teams       = $xprofile['team_names'] ?? [];
 		$user                 = get_user_by( 'ID', $user_id );
 		$last_login           = get_user_meta( $user_id, 'last_logged_in', true );
@@ -241,7 +244,6 @@ function render_contributor_report_page() {
 	echo '</table>';
 
 	set_transient( 'wporg_5ftf_contributor_report_' . $status, $export_data, 2 * MINUTE_IN_SECONDS );
-
 }
 /**
  * CSV export runner, grabs data lazily from a transient.
@@ -271,7 +273,6 @@ function export_csv() {
 
 /**
  * Export contributors as a CSV, also from transient.
- *
  */
 function export_contributors_csv() {
 

@@ -76,12 +76,14 @@ function get_all_xprofile_contributor_hours_teams(): array {
  * @return array
  */
 function get_all_xprofile_contributors_indexed() : array {
-
 	$all_data = get_all_xprofile_contributor_hours_teams();
 
 	$newdata = array();
 	foreach ( $all_data as $contributor ) {
-		$newdata[ $contributor->user_id ] = [ 'hours_per_week' => $contributor->hours_per_week, 'team_names' => $contributor->team_names ];
+		$newdata[ $contributor->user_id ] = [
+			'hours_per_week' => $contributor->hours_per_week,
+			'team_names' => $contributor->team_names,
+		];
 	}
 
 	return $newdata;
