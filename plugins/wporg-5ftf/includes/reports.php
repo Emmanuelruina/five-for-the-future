@@ -222,7 +222,7 @@ function render_contributor_report_page() {
 		$user_id              = get_post_meta( $c->ID, 'wporg_user_id', true );
 		$xprofile             = $all_contributor_data[ $user_id ] ?? [
 			'team_names' => [],
-			'hours_per_week' => 0
+			'hours_per_week' => 0,
 		];
 		$xprofile_teams       = $xprofile['team_names'] ?? [];
 		$user                 = get_user_by( 'ID', $user_id );

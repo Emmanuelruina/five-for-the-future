@@ -75,7 +75,7 @@ function get_all_xprofile_contributor_hours_teams(): array {
  *
  * @return array
  */
-function get_all_xprofile_contributors_indexed() : array {
+function get_all_xprofile_contributors_indexed(): array {
 	$all_data = get_all_xprofile_contributor_hours_teams();
 
 	$newdata = array();
@@ -87,7 +87,6 @@ function get_all_xprofile_contributors_indexed() : array {
 	}
 
 	return $newdata;
-
 }
 
 /**
